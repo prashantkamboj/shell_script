@@ -95,7 +95,7 @@ java_install() {
     #check and install terminator
     if [ ! -f "/usr/bin/java" ]; then
         echo "Installing Java"
-        sudo apt install -y openjdk-11
+        sudo apt install -y openjdk-11-jdk
         local exit_code=$?
         if [ $exit_code -eq 0 ]; then
             JAVA='Installed'
@@ -254,14 +254,14 @@ updated_systemWithApt() {
     android_studio_install
     nodejs_install
     install_git
-    echo "Chrome\t\t$CHROME"
-    echo "Slack \t\t$SLACK"
-    echo "VsCode\t\t$CODE"
-    echo "Terminator\t\t$TERMINATOR"
-    echo "Java \t\t$JAVA"
-    echo "Android Studio\t\t$ANDROID_STUDIO"
-    echo "Node \t\t $NODE"
-    echo "Git  \t\t$GIT"
+    echo -e "Chrome\t\t$CHROME"
+    echo -e "Slack \t\t$SLACK"
+    echo -e "VsCode\t\t$CODE"
+    echo -e "Terminator\t\t$TERMINATOR"
+    echo -e "Java \t\t$JAVA"
+    echo -e "Android Studio\t\t$ANDROID_STUDIO"
+    echo -e "Node \t\t $NODE"
+    echo -e "Git  \t\t$GIT"
 }
 # for users who haven't been updated there system with apt repository before running this script
 proceed_with_errors() {
@@ -278,12 +278,12 @@ update_systemWithApt() {
         updated_systemWithApt
         return
     else
-        echo "There is some error in updating your system \nDo you want to proceed further without fixing it(y/n)?"
+        echo -e "There is some error in updating your system \nDo you want to proceed further without fixing it(y/n)?"
         read YES_NO_PROCEED_WITH_ERROR
         if [ $YES_NO_PROCEED_WITH_ERROR = "y" ]; then
             proceed_with_errors
         else
-            echo "Please update your system properly before moving forward \nBye Bye"
+            echo -e "Please update your system properly before moving forward \nBye Bye"
             exit 1
         fi
     fi
@@ -292,8 +292,8 @@ update_systemWithApt() {
 }
 # for user who has updated there system with apt repository before running this script
 
-echo "Welcome to SystemSetup\nThis is basic system setup script for react native developers"
-echo "Do you want to proceed further? (y/n)"
+echo -e "Welcome to SystemSetup\nThis is basic system setup script for react native developers"
+echo -e "Do you want to proceed further? (y/n)"
 read YES_NO
 if [ "$YES_NO" = "y" ]; then
     echo "Have you updated your system with apt repository?"
