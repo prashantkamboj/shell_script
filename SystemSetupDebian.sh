@@ -15,7 +15,7 @@ chrome_install() {
     #check and install chrome
     if [ ! -f "/usr/bin/google-chrome" ]; then
         echo "Installing google chrome"
-        sudo snap install -y google-chrome --stable
+        sudo snap install google-chrome --stable
         local chrome_exit_code=$?
         if [ $chrome_exit_code -eq 0 ]; then
             CHROME='Installed'
@@ -36,7 +36,7 @@ slack_install() {
     #check and install slack
     if [ ! -f "/usr/bin/slack" ]; then
         echo "Installing Slack"
-        sudo snap install -y slack --classic
+        sudo snap install slack --classic
         local exit_code=$?
         if [ $exit_code -eq 0 ]; then
             SLACK='Installed'
@@ -56,7 +56,7 @@ code_install() {
     #check and install code
     if [ ! -f "/usr/bin/code" ]; then
         echo "Installing Code"
-        sudo snap install -y code --classic
+        sudo snap install code --classic
         local exit_code=$?
         if [ $exit_code -eq 0 ]; then
             CODE='Installed'
@@ -115,7 +115,7 @@ android_studio_install() {
     #check and install android-studio
     if [ ! -f "/usr/bin/android-studio" ]; then
         echo "Installing Code"
-        sudo snap install -y android-studio --classic
+        sudo snap install android-studio --classic
         local exit_code=$?
         if [ $exit_code -eq 0 ]; then
             ANDROID='Installed'
@@ -233,7 +233,7 @@ install_git() {
 }
 updated_systemWithApt() {
     #check if snap is installed
-    if [ -f '/usr/bin/snapd' ]; then
+    if [ -f '/usr/bin/snap' ]; then
         echo "snap is installed"
     else
         echo "Installing snap store for packages"
