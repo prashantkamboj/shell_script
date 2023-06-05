@@ -13,7 +13,7 @@ GIT=
 # function for install chro me
 chrome_install() {
     #check and install chrome
-    if [ ! -f "/usr/bin/google-chrome"]; then
+    if [ ! -f "/usr/bin/google-chrome" ]; then
         echo "Installing google chrome"
         sudo snap install -y google-chrome --stable
         local chrome_exit_code=$?
@@ -34,7 +34,7 @@ chrome_install() {
 # function for installing slack
 slack_install() {
     #check and install slack
-    if [ ! -f "/usr/bin/slack"]; then
+    if [ ! -f "/usr/bin/slack" ]; then
         echo "Installing Slack"
         sudo snap install -y slack --classic
         local exit_code=$?
@@ -54,7 +54,7 @@ slack_install() {
 # function for installing vs-code
 code_install() {
     #check and install code
-    if [ ! -f "/usr/bin/code"]; then
+    if [ ! -f "/usr/bin/code" ]; then
         echo "Installing Code"
         sudo snap install -y code --classic
         local exit_code=$?
@@ -74,7 +74,7 @@ code_install() {
 # function for installing terminator
 terminator_install() {
     #check and install terminator
-    if [ ! -f "/usr/bin/terminator"]; then
+    if [ ! -f "/usr/bin/terminator" ]; then
         echo "Installing Terminator"
         sudo apt install -y terminator
         local exit_code=$?
@@ -93,7 +93,7 @@ terminator_install() {
 }
 java_install() {
     #check and install terminator
-    if [ ! -f "/usr/bin/java"]; then
+    if [ ! -f "/usr/bin/java" ]; then
         echo "Installing Java"
         sudo apt install -y openjdk-11
         local exit_code=$?
@@ -113,7 +113,7 @@ java_install() {
 #function for installing android studio
 android_studio_install() {
     #check and install android-studio
-    if [ ! -f "/usr/bin/android-studio"]; then
+    if [ ! -f "/usr/bin/android-studio" ]; then
         echo "Installing Code"
         sudo snap install -y android-studio --classic
         local exit_code=$?
@@ -133,7 +133,7 @@ android_studio_install() {
 #function for installing curl
 curl_install() {
     #check and install curl
-    if [ ! -f "/usr/bin/curl"]; then
+    if [ ! -f "/usr/bin/curl" ]; then
         echo "Installing Curl"
         sudo apt install -y curl
         local exit_code=$?
@@ -168,7 +168,7 @@ install_yarn() {
 }
 #function for setting up node source path
 set_node_path() {
-    if [ -f '/usr/bin/curl']; then
+    if [ -f '/usr/bin/curl' ]; then
         echo "Setting node path using curl"
         curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
         local exit_code=$?
@@ -190,7 +190,7 @@ update_system_with_apt() {
 #function for installing nodejs
 nodejs_install() {
     #check and install nodejs
-    if [ ! -f "/usr/bin/node"]; then
+    if [ ! -f "/usr/bin/node" ]; then
         if [ ! -f '/usr/bin/curl' ]; then
             curl_install
             set_node_path
@@ -233,7 +233,7 @@ install_git() {
 }
 updated_systemWithApt() {
     #check if snap is installed
-    if [ -f '/usr/bin/snapd']; then
+    if [ -f '/usr/bin/snapd' ]; then
         echo "snap is installed"
     else
         echo "Installing snap store for packages"
@@ -260,7 +260,7 @@ updated_systemWithApt() {
     echo "Terminator\t\t$TERMINATOR"
     echo "Java \t\t$JAVA"
     echo "Android Studio\t\t$ANDROID_STUDIO"
-    echo "Node \t\t$NODE"
+    echo "Node \t\t $NODE"
     echo "Git  \t\t$GIT"
 }
 # for users who haven't been updated there system with apt repository before running this script
