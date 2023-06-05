@@ -13,7 +13,7 @@ GIT=
 # function for install chro me
 chrome_install() {
     #check and install chrome
-    if [ ! -f "/usr/bin/google-chrome" ]; then
+    if [ ! -f "/usr/bin/google-chrome" ] && [ ! -f '/snap/bin/google-chrome' ]; then
         echo "Installing google chrome"
         sudo snap install google-chrome --stable
         local chrome_exit_code=$?
@@ -34,7 +34,7 @@ chrome_install() {
 # function for installing slack
 slack_install() {
     #check and install slack
-    if [ ! -f "/usr/bin/slack" ]; then
+    if [ ! -f "/usr/bin/slack" ] && [ ! -f '/snap/bin/slack' ]; then
         echo "Installing Slack"
         sudo snap install slack --classic
         local exit_code=$?
@@ -54,7 +54,7 @@ slack_install() {
 # function for installing vs-code
 code_install() {
     #check and install code
-    if [ ! -f "/usr/bin/code" ]; then
+    if [ ! -f "/usr/bin/code" ] && [ ! -f '/snap/bin/code' ]; then
         echo "Installing Code"
         sudo snap install code --classic
         local exit_code=$?
@@ -113,7 +113,7 @@ java_install() {
 #function for installing android studio
 android_studio_install() {
     #check and install android-studio
-    if [ ! -f "/usr/bin/android-studio" ]; then
+    if [ ! -f "/usr/bin/android-studio" ] && [ ! -f '/snap/bin/android-studio' ]; then
         echo "Installing Code"
         sudo snap install android-studio --classic
         local exit_code=$?
@@ -254,14 +254,14 @@ updated_systemWithApt() {
     android_studio_install
     nodejs_install
     install_git
-    echo -e "Chrome\t\t$CHROME"
-    echo -e "Slack \t\t$SLACK"
-    echo -e "VsCode\t\t$CODE"
-    echo -e "Terminator\t\t$TERMINATOR"
-    echo -e "Java \t\t$JAVA"
-    echo -e "Android Studio\t\t$ANDROID_STUDIO"
-    echo -e "Node \t\t $NODE"
-    echo -e "Git  \t\t$GIT"
+    echo -e "Chrome\t\t\t$CHROME"
+    echo -e "Slack \t\t\t$SLACK"
+    echo -e "VsCode\t\t\t$CODE"
+    echo -e "Terminator\t\t$TERMINAL"
+    echo -e "Java \t\t\t$JAVA"
+    echo -e "Android Studio\t\t$ANDROID"
+    echo -e "Node \t\t\t$NODE"
+    echo -e "Git  \t\t\t$GIT"
 }
 # for users who haven't been updated there system with apt repository before running this script
 proceed_with_errors() {
@@ -271,7 +271,7 @@ proceed_with_errors() {
 
 update_systemWithApt() {
     echo "Updating system with apt $"
-    sudo apt update && sudo apt upgrade
+    sudo apt update && sudo apt -y upgrade
     local exit_code=$?
     if [ $exit_code -eq 0 ]; then
         echo "System updated successfully"
