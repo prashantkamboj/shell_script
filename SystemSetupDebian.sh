@@ -95,7 +95,7 @@ java_install() {
     #check and install terminator
     if [ ! -f "/usr/bin/java" ]; then
         echo "Installing Java"
-        sudo apt install -y openjdk-11-jdk
+        sudo apt install -y openjdk-17-jdk
         local exit_code=$?
         if [ $exit_code -eq 0 ]; then
             JAVA='Installed'
@@ -170,7 +170,7 @@ install_yarn() {
 set_node_path() {
     if [ -f '/usr/bin/curl' ]; then
         echo "Setting node path using curl"
-        curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+        curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
         local exit_code=$?
         if [ $exit_code -eq 0 ]; then
             echo "Done setting node path"
